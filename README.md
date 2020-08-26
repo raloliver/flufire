@@ -2,15 +2,30 @@
 
 Just a simple integration with Firebase
 
-## Getting Started
+## Cloud Firestore
 
-This project is a starting point for a Flutter application.
+Relational vs. NoSQL
 
-A few resources to get you started if this is your first Flutter project:
+### Relational
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+- Schema
+- Tables with columns
+- Foreign keys
+- Assemble data on query
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### NoSQL
+
+- No schema
+- Nested key-value documents (like JSON)
+- Self-contained
+- Duplicate data to document (duplication???)
+  - Optimize reads instead of writes
+  - Write: overhead to sync
+  - Read: everything is ready
+  - In most application, reads are more frequent than writes
+
+### Cloud Firestore
+
+- NoSQL
+- Collections
+- Sub-collections
