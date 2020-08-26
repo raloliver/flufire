@@ -1,7 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
@@ -39,13 +42,13 @@ class Notepage extends StatelessWidget {
     return StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('notes')
-          .doc('quick')
+          .doc('todo')
           .snapshots(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           var doc = snapshot.data;
           if (doc.exists) {
-            return Text(doc['content']);
+            print(snapshot.data['content']);
           }
         }
         return Center(child: CircularProgressIndicator());
